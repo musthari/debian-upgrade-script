@@ -47,16 +47,16 @@ chmod +x upgrade-debian.sh
 sudo ./upgrade-debian.sh
 ```
 
-### Metode 4: Langsung jalankan dengan curl (tanpa disimpan)
+### Metode 4: Langsung jalankan dengan curl (one-liner)
 
 ```bash
-sudo bash <(curl -fsSL https://raw.githubusercontent.com/musthari/debian-upgrade-script/main/upgrade-debian.sh)
+curl -fsSL https://raw.githubusercontent.com/musthari/debian-upgrade-script/main/upgrade-debian.sh | sudo bash
 ```
 
-### Metode 5: Langsung jalankan dengan wget (tanpa disimpan)
+### Metode 5: Langsung jalankan dengan wget (one-liner)
 
 ```bash
-sudo bash <(wget -qO- https://raw.githubusercontent.com/musthari/debian-upgrade-script/main/upgrade-debian.sh)
+wget -qO- https://raw.githubusercontent.com/musthari/debian-upgrade-script/main/upgrade-debian.sh | sudo bash
 ```
 
 ## Tahapan Upgrade
@@ -131,6 +131,11 @@ cp /root/debian-upgrade-backup-YYYYMMDD-HHMMSS/sources.list /etc/apt/sources.lis
 ### Upgrade tertunda atau timeout
 - Jalankan skrip kembali, proses upgrade akan melanjutkan dari tahap terakhir
 - Pastikan Anda tidak menghentikan skrip di tengah jalan
+
+### Error: `/dev/fd/63: No such file or directory`
+- Gunakan Metode 2, 3 atau jalankan skrip secara terpisah
+- Shell Anda mungkin tidak mendukung process substitution
+- Gunakan Metode 4 atau 5 yang menggunakan pipe standar
 
 ## Lihat Log Detail
 
